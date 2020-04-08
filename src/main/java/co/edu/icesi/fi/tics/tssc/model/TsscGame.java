@@ -2,11 +2,19 @@ package co.edu.icesi.fi.tics.tssc.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import co.icesi.fi.tics.tssc.validations.ValidationGame;
+import co.icesi.fi.tics.tssc.validations.ValidationStory;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,26 +35,34 @@ public class TsscGame implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TSSC_GAME_ID_GENERATOR")
 	private long id;
 
+	@NotBlank(message = "Se requiere una contraseña", groups=ValidationGame.class)
 	@Column(name = "ADMIN_PASSWORD")
 	private String adminPassword;
 
+	@NotBlank(message = "Se requiere una contraseña", groups=ValidationGame.class)
 	@Column(name = "GUEST_PASSWORD")
 	private String guestPassword;
 
+	@Min(value = 1, message = "Groups deben ser mayores a 0", groups=ValidationGame.class)
 	@Column(name = "N_GROUPS")
 	private Integer nGroups = 4;
 
+	@Min(value = 1, message = "Sprints deben ser mayores a 0", groups=ValidationGame.class)
 	@Column(name = "N_SPRINTS")
 	private Integer nSprints = 4;
 
+	@NotBlank(message = "El juego debe tener un nombre", groups=ValidationGame.class)
 	private String name;
 
 	@Column(name = "PAUSE_SECONDS")
 	private Long pauseSeconds = 0L;
 
+	@NotNull(message = "Debes  elegir una fecha", groups=ValidationGame.class)
+	@DateTimeFormat(pattern = "mm/dd/yyyy")
 	@Column(name = "SCHEDULED_DATE")
 	private LocalDate scheduledDate;
 
+	@NotNull(message  = "Debes elegir una hora", groups=ValidationGame.class)
 	@Column(name = "SCHEDULED_TIME")
 	private LocalTime scheduledTime;
 
@@ -56,6 +72,7 @@ public class TsscGame implements Serializable {
 	@Column(name = "TYPEGAME_ID")
 	private BigDecimal typegameId;
 
+	@NotBlank(message = "Se requiere una contraseña", groups=ValidationGame.class)
 	@Column(name = "USER_PASSWORD")
 	private String userPassword;
 

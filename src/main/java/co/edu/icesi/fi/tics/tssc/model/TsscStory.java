@@ -2,6 +2,11 @@ package co.edu.icesi.fi.tics.tssc.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import co.icesi.fi.tics.tssc.validations.ValidationStory;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,17 +32,24 @@ public class TsscStory implements Serializable {
 	@Column(name = "ALT_DESCRIPTON")
 	private String altDescripton;
 
+	@Min(value = 1, message ="El valor debe ser mayor que cero", groups=ValidationStory.class)
+	@NotNull(message = "Ingresa un valor para el valor de negocio", groups=ValidationStory.class)
 	@Column(name = "BUSINESS_VALUE")
 	private BigDecimal businessValue;
 
+	@NotBlank(message = "Ingresa una descripción")
 	private String description;
 
+	@Min(value = 1, message ="El valor debe ser mayor que cero", groups=ValidationStory.class)
+	@NotNull(message = "Ingresa un valor para el Sprint Inicial", groups=ValidationStory.class)
 	@Column(name = "INITIAL_SPRINT")
 	private BigDecimal initialSprint;
 
 	@Column(name = "ST_NUMBER")
 	private BigDecimal number;
 
+	@Min(value = 1, message ="El valor debe ser mayor que cero", groups=ValidationStory.class)
+	@NotNull(message = "Ingresa un valor de prioridad", groups=ValidationStory.class)
 	private BigDecimal priority;
 
 	@Column(name = "SHORT_DESCRIPTION")

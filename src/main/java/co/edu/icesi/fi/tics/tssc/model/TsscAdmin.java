@@ -2,6 +2,8 @@ package co.edu.icesi.fi.tics.tssc.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 import java.util.List;
 
 /**
@@ -19,15 +21,19 @@ public class TsscAdmin implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TSSC_ADMIN_ID_GENERATOR")
 	private long id;
 
+	@NotBlank(message = "Contraseña es obligatoria.")
 	private String password;
 
+	@NotBlank(message = "Debe especificar tipo de Admin")
 	@Column(name = "SUPER_ADMIN")
 	private String superAdmin;
 
+	@NotBlank(message = "Debe ingresar un username")
 	@Column(name = "AD_USER")
 	private String user;
 
 	// bi-directional many-to-one association to TsscState
+	
 	@ManyToOne
 	@JoinColumn(name = "TSSC_STATE_ID")
 	private TsscState tsscState;

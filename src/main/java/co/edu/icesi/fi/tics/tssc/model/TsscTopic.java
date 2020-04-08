@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import co.icesi.fi.tics.tssc.validations.ValidationTopic;
 
 /**
  * The persistent class for the TSSC_TOPIC database table.
@@ -22,16 +26,21 @@ public class TsscTopic implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TSSC_TOPIC_ID_GENERATOR")
 	private long id;
 
+	@NotBlank(message = "Agrega una descripción", groups=ValidationTopic.class)
 	private String description;
 
+	@NotBlank(message = "Ingresa un nombre.", groups=ValidationTopic.class)
 	private String name;
 
+	@Min(value = 1, message = "Sprints deben ser mayor a cero", groups=ValidationTopic.class)
 	@Column(name = "DEFAULT_SPRINTS")
 	private long defaultSprints;
 
+	@Min(value = 1, message = "Groups deben ser mayor a cero", groups=ValidationTopic.class)
 	@Column(name = "DEFAULT_GROUPS")
 	private long defaultGroups;
 
+	@NotBlank(message = "Ingresa por favor un prefijo de grupo", groups=ValidationTopic.class)
 	@Column(name = "GROUP_PREFIX")
 	private String groupPrefix;
 
