@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Add Game</title>
+<title>Crear Juego</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -13,10 +13,10 @@
 </head>
 <body>
 	<div class="container my-5">
-		<h2 class="mb-5">Add Game</h2>
+		<h2 class="mb-5">Crear Juego</h2>
 		<div class="row">
 			<div class="col-md-5">
-				<form action="#" th:object="${game}" th:action="@{/game/add/}"
+				<form action="#" th:object="${tsscGame}" th:action="@{/game/add/}"
 					method="post">
 					<div class="row">
 
@@ -33,7 +33,7 @@
 								admin </label> <input type="text" th:field="*{adminPassword}"
 								class="form-control" id="adminPassword"
 								placeholder="Admin Password"> <span
-								th:if="${#fields.hasErrors('adminPassword)}"
+								th:if="${#fields.hasErrors('adminPassword')}"
 								th:errors="*{adminPassword}" class="text-danger"> </span>
 						</div>
 

@@ -7,4 +7,5 @@ public interface TopicService {
 
 	public TsscTopic saveTopic(TsscTopic nuevo) throws CapacityException, TopicException, SpringException;
 	public TsscTopic editTopic(TsscTopic editado) throws TopicException, CapacityException, SpringException;
+	public Iterable<TsscTopic> findAll();
 }

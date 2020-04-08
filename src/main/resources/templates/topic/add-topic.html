@@ -13,10 +13,10 @@
 </head>
 <body>
 	<div class="container my-5">
-		<h2 class="mb-5">Add Topic</h2>
+		<h2 class="mb-5">Crear nuevo tema</h2>
 		<div class="row">
 			<div class="col-md-5">
-				<form action="#" th:object="${topic}" th:action="@{/topic/add/}"
+				<form action="#" th:action="@{/topic/add/}" th:object="${tsscTopic}" 
 					method="post">
 					<div class="row">
 
@@ -62,17 +62,22 @@
 								th:if="${#fields.hasErrors('groupPrefix')}"
 								th:errors="*{groupPrefix}" class="text-danger"> </span>
 						</div>
+						
+						<p></p>
 
 						<div class="row">
 							<div class="col-md-4 mt-3">
 								<input type="submit" name="action" class="btn btn-primary"
 									value="Adicionar">
 							</div>
+							
+							<p></p>
 
 							<div class="col-md-3 mt-3">
 								<input type="submit" name="action" class="btn btn-secondary"
 									value="Cancelar">
 							</div>
+						</div>
 						</div>
 				</form>
 			</div>

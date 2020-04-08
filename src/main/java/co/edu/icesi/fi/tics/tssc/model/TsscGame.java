@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -58,10 +59,11 @@ public class TsscGame implements Serializable {
 	private Long pauseSeconds = 0L;
 
 	@NotNull(message = "Debes  elegir una fecha", groups=ValidationGame.class)
-	@DateTimeFormat(pattern = "mm/dd/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "SCHEDULED_DATE")
 	private LocalDate scheduledDate;
 
+	@DateTimeFormat(iso = ISO.TIME)
 	@NotNull(message  = "Debes elegir una hora", groups=ValidationGame.class)
 	@Column(name = "SCHEDULED_TIME")
 	private LocalTime scheduledTime;

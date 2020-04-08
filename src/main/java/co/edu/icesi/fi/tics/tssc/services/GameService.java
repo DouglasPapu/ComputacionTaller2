@@ -12,6 +12,7 @@ public interface GameService {
 	public TsscGame saveGameWithTopic(TsscGame nuevo, long id) throws CapacityException, TopicException, SpringException, GameException;
 	public TsscGame saveGame(TsscGame nuevo) throws CapacityException, GameException, SpringException;
 	public TsscGame editGame(TsscGame editado) throws GameException, CapacityException, SpringException;
+	public Iterable<TsscGame> findAll();
 	
 	//Refactor
 	public TsscGame saveGameWithTopic2(TsscTopic game) throws Exception;

@@ -69,4 +69,10 @@ public class TopicServiceImpl implements TopicService {
 
 	}
 
+	@Override
+	public Iterable<TsscTopic> findAll() {
+		// TODO Auto-generated method stub
+		return repository.findAll();
+	}
+
 }

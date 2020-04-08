@@ -121,4 +121,9 @@ public class GameServiceImpl implements GameService {
 
 	}
 
+	@Override
+	public Iterable<TsscGame> findAll() {
+		return gameRepository.findAll();
+	}
+
 }

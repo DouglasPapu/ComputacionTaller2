@@ -29,7 +29,7 @@ public class TsscTopic implements Serializable {
 	@NotBlank(message = "Agrega una descripción", groups=ValidationTopic.class)
 	private String description;
 
-	@NotBlank(message = "Ingresa un nombre.", groups=ValidationTopic.class)
+	@NotBlank(groups=ValidationTopic.class, message = "Ingresa un nombre.")
 	private String name;
 
 	@Min(value = 1, message = "Sprints deben ser mayor a cero", groups=ValidationTopic.class)
