@@ -168,5 +168,24 @@ public class GameController {
 		gameService.delete(tsscGame);
 		return "redirect:/game/";
 	}
+	
+	
+	// LISTA DE HISTORIAS DEL JUEGO
+	
+	@GetMapping("/game/list/{id}")
+	public String showListStories(@PathVariable("id") long id, Model model) {
+		Optional<TsscGame> tsscGame = gameService.findById(id);
 
+		if (tsscGame == null)
+			throw new IllegalArgumentException("Invalid game Id:" + id);
+
+		model.addAttribute("tsscGame", tsscGame.get());
+		model.addAttribute("stories", tsscGame.get().getTsscStories());
+
+		return "game/list-stories";
+	}
+	
+	
+	
+	
 }

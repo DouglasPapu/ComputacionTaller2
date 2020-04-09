@@ -13,9 +13,5 @@ public class AdminController {
 	public String loginForm() {
 		return "login";
 	}
-	
-	@RequestMapping("/accessdenied")
-    public String accessdenied(Model model) {
-        return "error";
-    }
+
 }

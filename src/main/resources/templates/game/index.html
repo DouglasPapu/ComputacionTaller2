@@ -49,11 +49,41 @@
 									class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
 								<td><a th:href="@{/game/del/{id}(id=${game.id})}"
 									class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
-							    <td><a 
-									class="btn btn-primary"><i class="far fa-file-image"></i></a></td>
-								<td><a 
-									class="btn btn-primary"><i class="fas fa-thumbtack"></i></a></td>
 									
+							    <td>
+							    
+							    <span th:if=${!game.tsscStories.isEmpty()}>
+							     <a th:href="@{/game/list/{id}(id=${game.id})}"
+									class="btn btn-primary" title="Hay historias asociadas"><i class="far fa-file-image"></i></a>
+								
+								</span>
+								
+								<span th:if=${game.tsscStories.isEmpty()}>	
+								
+								<a 
+									class="btn btn-primary" title="No hay historias asociadas"><i class="far fa-file-image"></i></a>
+								
+								</span>
+								
+							    </td>
+								
+								<!-- Inicia control de la edición del tema de juegos. -->	
+								<td><span th:if=${game.tsscTopic!=null}> 
+								   
+								    <a th:href="@{/topic/edit/{id}(id=${game.tsscTopic.id})}"
+									class="btn btn-primary" title="Hay un tema asociado"><i class="fas fa-thumbtack"></i></a>
+									
+									</span>
+									
+									<span th:if=${game.tsscTopic==null}>
+									
+					                  <a  class="btn btn-primary" disabled="true" title="No hay Temas asociados">
+					                     <i class="fas fa-thumbtack"></i></a>
+									
+									</span>
+									</td>	
+								<!-- Termina el control de edición tema de juegos. -->	
+																	
 							</tr>
 						</tbody>
 					</table>

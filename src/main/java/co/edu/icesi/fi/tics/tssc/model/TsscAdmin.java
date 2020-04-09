@@ -30,7 +30,7 @@ public class TsscAdmin implements Serializable {
 
 	@NotBlank(message = "Debe ingresar un username")
 	@Column(name = "AD_USER")
-	private String user;
+	private String username;
 
 	// bi-directional many-to-one association to TsscState
 	
@@ -70,11 +70,11 @@ public class TsscAdmin implements Serializable {
 	}
 
 	public String getUser() {
-		return this.user;
+		return this.username;
 	}
 
 	public void setUser(String user) {
-		this.user = user;
+		this.username = user;
 	}
 
 	public TsscState getTsscState() {

@@ -8,5 +8,5 @@ import co.edu.icesi.fi.tics.tssc.model.TsscAdmin;
 @Repository
 public interface IAdminRepository extends CrudRepository<TsscAdmin, Long>{
 	
-	TsscAdmin findByUser(String user);
+	TsscAdmin findByUsername(String user);
 }
