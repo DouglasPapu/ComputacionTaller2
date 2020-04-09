@@ -27,7 +27,7 @@ public class TallerPruebasIntegracionApplication {
 
 			// Agregar un usuario superadmin.
 			TsscAdmin user = new TsscAdmin();
-			user.setUser("admin1");
+			user.setUser("superadmin");
 			user.setPassword("{noop}123");
 			user.setSuperAdmin("superadmin");
 			adminService.save(user);

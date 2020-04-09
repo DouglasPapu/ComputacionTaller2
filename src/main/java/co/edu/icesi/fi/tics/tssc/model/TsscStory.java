@@ -37,7 +37,7 @@ public class TsscStory implements Serializable {
 	@Column(name = "BUSINESS_VALUE")
 	private BigDecimal businessValue;
 
-	@NotBlank(message = "Ingresa una descripción")
+	@NotBlank(message = "Ingresa una descripción", groups=ValidationStory.class)
 	private String description;
 
 	@Min(value = 1, message ="El valor debe ser mayor que cero", groups=ValidationStory.class)

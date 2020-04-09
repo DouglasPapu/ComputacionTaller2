@@ -2,6 +2,7 @@ package co.edu.icesi.fi.tics.tssc.services;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -124,6 +125,16 @@ public class GameServiceImpl implements GameService {
 	@Override
 	public Iterable<TsscGame> findAll() {
 		return gameRepository.findAll();
+	}
+
+	@Override
+	public Optional<TsscGame> findById(long id) {
+		return gameRepository.findById(id);
+	}
+
+	@Override
+	public void delete(TsscGame del) {
+       gameRepository.delete(del);
 	}
 
 }

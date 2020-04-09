@@ -1,6 +1,7 @@
 package co.edu.icesi.fi.tics.tssc.services;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -73,6 +74,16 @@ public class TopicServiceImpl implements TopicService {
 	public Iterable<TsscTopic> findAll() {
 		// TODO Auto-generated method stub
 		return repository.findAll();
+	}
+
+	@Override
+	public Optional<TsscTopic> findById(long id) {
+		return repository.findById(id);
+	}
+
+	@Override
+	public void delete(TsscTopic del) {
+		repository.delete(del);
 	}
 
 }

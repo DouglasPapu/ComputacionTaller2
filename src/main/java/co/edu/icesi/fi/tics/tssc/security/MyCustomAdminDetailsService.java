@@ -22,10 +22,10 @@ public class MyCustomAdminDetailsService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		TsscAdmin admin = adminRepository.findByUser(username);
-		if (admin != null) {
-			User.UserBuilder builder = User.withUsername(username).password(admin.getPassword())
-					.roles(admin.getSuperAdmin());
+		TsscAdmin tsscAdmin = adminRepository.findByUser(username);
+		if (tsscAdmin != null) {
+			User.UserBuilder builder = User.withUsername(username).password(tsscAdmin.getPassword())
+					.roles(tsscAdmin.getSuperAdmin());
 			return builder.build();
 		} else {
 			throw new UsernameNotFoundException("User not found.");

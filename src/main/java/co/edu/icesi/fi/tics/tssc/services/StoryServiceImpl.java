@@ -1,6 +1,7 @@
 package co.edu.icesi.fi.tics.tssc.services;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,6 +75,16 @@ public class StoryServiceImpl implements StoryService {
 	@Override
 	public Iterable<TsscStory> findAll() {
 		return storyRepository.findAll();
+	}
+
+	@Override
+	public Optional<TsscStory> findById(long id) {
+		return storyRepository.findById(id);
+	}
+
+	@Override
+	public void delete(TsscStory del) {
+		storyRepository.delete(del);
 	}
 
 }
