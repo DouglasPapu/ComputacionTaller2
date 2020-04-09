@@ -46,6 +46,13 @@ public class TopicController {
 
 		if (!action.equals("Cancelar")) {
 			if (bindingResult.hasErrors()) {
+				
+				model.addAttribute("name", tsscTopic.getName());
+				model.addAttribute("description", tsscTopic.getDescription());
+				model.addAttribute("defaultGroups", tsscTopic.getDefaultGroups());
+				model.addAttribute("defaultSprints", tsscTopic.getDefaultSprints());
+				model.addAttribute("groupPrefix", tsscTopic.getGroupPrefix());
+				
 				return "topic/add-topic";
 			} else {
 
@@ -60,9 +67,13 @@ public class TopicController {
 
 			}
 
+		}else {
+			
+			model.addAttribute("topics", topicService.findAll());
+			return "topic/index";
 		}
 
-		return "topic/index";
+		
 	}
 
 }
