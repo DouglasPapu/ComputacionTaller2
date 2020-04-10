@@ -25,23 +25,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		
-		httpSecurity.formLogin().loginPage("/login").permitAll().and().authorizeRequests().antMatchers("/**").authenticated().anyRequest().permitAll().and().httpBasic().and().logout()
-		.invalidateHttpSession(true).clearAuthentication(true)
-		.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
-		.permitAll().and().exceptionHandling().accessDeniedHandler(accessDeniedHandler);
 			
-
-//         httpSecurity.authorizeRequests().antMatchers("/**").authenticated().and().authorizeRequests()
-//		.antMatchers("/**").access("hasRole('superadmin')")
-//		.antMatchers("/**").access("hasRole('admin')")
-//
-//		.and()
-//		
-//		.formLogin().loginPage("/login").permitAll().and()
-//		.logout().invalidateHttpSession(true).clearAuthentication(true)
-//		.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
-//		.permitAll().and().exceptionHandling().accessDeniedPage("/error");
+		httpSecurity.formLogin().loginPage("/login").permitAll().and().authorizeRequests()
+        .antMatchers("/index").permitAll()
+		.antMatchers("/game/**", "/story/**").hasRole("admin")
+		.antMatchers("/game/**", "/story/**", "/topic/**").hasRole("superadmin")
+		.anyRequest().authenticated().and().httpBasic().and().logout().invalidateHttpSession(true)
+		.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		.logoutSuccessUrl("/login?logout").permitAll().and().exceptionHandling()
+		.accessDeniedHandler(accessDeniedHandler);
 
 		
 		

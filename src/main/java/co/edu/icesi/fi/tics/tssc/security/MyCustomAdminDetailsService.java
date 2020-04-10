@@ -24,8 +24,7 @@ public class MyCustomAdminDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		TsscAdmin tsscAdmin = adminRepository.findByUsername(username);
 		if (tsscAdmin != null) {
-			User.UserBuilder builder = User.withUsername(username).password(tsscAdmin.getPassword())
-					.roles(tsscAdmin.getSuperAdmin());
+			User.UserBuilder builder = User.withUsername(username).password(tsscAdmin.getPassword()).roles(tsscAdmin.getSuperAdmin());
 			return builder.build();
 		} else {
 			throw new UsernameNotFoundException("User not found.");

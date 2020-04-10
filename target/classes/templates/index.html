@@ -21,7 +21,16 @@
 			<div class="col-md-6">
 				<h2>Simulación Scrum - Universidad Icesi</h2>
 				
-		   <div sec:authorize="hasAnyRole('superadmin')">
+				
+     		 <div sec:authorize="hasRole('admin')">
+				 	
+				 	<p> <a href="/game/"><i class="fas fa-gamepad"></i> Gestion de juegos</a></p>
+				 	
+				   <p><a href="/story/"><i class="far fa-window-restore"></i> Gestion de Historias</a></p>
+				    
+			</div>
+				
+		   <div sec:authorize="hasRole('superadmin')">
 				
 				<p> <a href="/game/"><i class="fas fa-gamepad"></i> Gestion de Juegos</a></p>
 				
@@ -32,14 +41,6 @@
 <!-- 				<p><a href=""><i class="fas fa-user-secret"></i> Gestion de Administradores</a></p> -->
 				
 		    </div> 
-		    
-			 <div sec:authorize="hasAnyRole('admin')">
-				 	
-				 	<p> <a href="/game/"><i class="fas fa-gamepad"></i> Gestion de juegos</a></p>
-				 	
-				    <p><a href="/story/"><i class="far fa-window-restore"></i> Gestion de Historias</a></p>
-				    
-				</div>
 
 				<a href="/logout"><i class="fas fa-home ml-2"></i> Logout</a>
 			</div>
