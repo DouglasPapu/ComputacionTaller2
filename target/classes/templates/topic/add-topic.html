@@ -16,7 +16,7 @@
 		<h2 class="mb-5">Crear nuevo tema</h2>
 		<div class="row">
 			<div class="col-md-5">
-				<form action="#" th:action="@{/topic/add/}" th:object="${tsscTopic}" 
+				<form action="#" th:action="@{/topic/add/}" th:object="${tsscTopic}"
 					method="post">
 					<div class="row">
 
@@ -55,30 +55,33 @@
 						</div>
 
 						<div class="form-group col-md-6">
-							<label for="groupPrefix" class="col-form-label">Prefijo para 
-							 grupos </label> <input type="text"
-								th:field="*{groupPrefix}" class="form-control"
-								id="groupPrefix" placeholder="Grupo"> <span
-								th:if="${#fields.hasErrors('groupPrefix')}"
+							<label for="groupPrefix" class="col-form-label">Prefijo
+								para grupos </label> <input type="text" th:field="*{groupPrefix}"
+								class="form-control" id="groupPrefix" placeholder="Grupo">
+							<span th:if="${#fields.hasErrors('groupPrefix')}"
 								th:errors="*{groupPrefix}" class="text-danger"> </span>
 						</div>
-						
-						<p></p>
 
-						<div class="row">
-							<div class="col-md-4 mt-3">
-								<input type="submit" name="action" class="btn btn-primary"
-									value="Adicionar">
-							</div>
-							
-							<p></p>
+						<div class="col-md-4 mt-3">
 
-							<div class="col-md-3 mt-3">
-								<input type="submit" name="action" class="btn btn-secondary"
-									value="Cancelar">
-							</div>
+							<input type="hidden" class="btn btn-primary" value="">
+
 						</div>
+
+
+						<div class="col-md-4 mt-3">
+							<input type="submit" name="action" class="btn btn-primary"
+								value="Adicionar">
 						</div>
+
+
+
+						<div class="col-md-3 mt-3">
+							<input type="submit" name="action" class="btn btn-secondary"
+								value="Cancelar">
+						</div>
+
+					</div>
 				</form>
 			</div>
 		</div>

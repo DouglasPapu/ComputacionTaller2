@@ -66,6 +66,9 @@ public class StoryController {
 
 				// Guarda una Historia con el juego obligatorio.
 				try {
+					
+					gameService.findById(tsscStory.getTsscGame().getId()).get().getTsscStories().add(tsscStory);
+									
 					storyService.saveStory(tsscStory, tsscStory.getTsscGame().getId());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

@@ -28,8 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			
 		httpSecurity.formLogin().loginPage("/login").permitAll().and().authorizeRequests()
         .antMatchers("/index").permitAll()
-		.antMatchers("/game/**", "/story/**").hasRole("admin")
-		.antMatchers("/game/**", "/story/**", "/topic/**").hasRole("superadmin")
+		.antMatchers("/game/", "/story/", "/game/**", "/story/**").hasAnyRole("admin", "superadmin")
+//		.antMatchers("/game/", "/story/", "/topic/","/game/**", "/story/**", "/topic/**").hasRole("superadmin")
+		.antMatchers("/topic/**").hasRole("superadmin")
 		.anyRequest().authenticated().and().httpBasic().and().logout().invalidateHttpSession(true)
 		.clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 		.logoutSuccessUrl("/login?logout").permitAll().and().exceptionHandling()

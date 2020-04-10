@@ -43,10 +43,10 @@
 								<td class="text-info" th:text="${story.initialSprint}"></td>
 								<td class="text-info" th:text="${story.priority}"></td>
 								<td class="text-info" th:text="${story.tsscGame.name}"></td>
-<!-- 								<td><a th:href="@{/story/edit/{id}(id=${story.id})}" -->
-<!-- 									class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td> -->
-<!-- 								<td><a th:href="@{/story/del/{id}(id=${story.id})}" -->
-<!-- 									class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td> -->
+								<td><a th:href="@{/story/edit/{id}(id=${story.id})}"
+									class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+								<td><a th:href="@{/story/del/{id}(id=${story.id})}"
+									class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -54,7 +54,7 @@
 				
 			</div>
 		</div>
-		<a href="/game"> Regresar a <i class="fas fa-home ml-2"></i></a>
+		<a th:href="@{/game/}"> Regresar a <i class="fas fa-home ml-2"></i></a>
 	</div>
 </body>
 </html>

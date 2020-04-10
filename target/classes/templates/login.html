@@ -11,7 +11,9 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<div>
+<div class = "container">
+<div class="row justify-content-center align-items-center">
+	<div class="col-lg-12">
 		<form name="f" th:action="@{/login}" method="post">
 			<fieldset>
 				<legend>Por favor inicie sesi&oacuten</legend>
@@ -23,10 +25,12 @@
 			    <label for="password">Contrase&ntildea:</label>
 				<input type="password" id="password" name="password" placeholder = "Ingresa Password" />
 				<div class="form-actions">
-					<button type="submit" class="btn btn-large btn-primary">Iniciar sesi&oacuten</button>
+					<button type="submit" class="btn btn-large btn-primary"><i class="fas fa-user"></i>  Iniciar sesi&oacuten </button>
 				</div>
 			</fieldset>
 		</form>
 	</div>
+  </div>
+</div>
 </body>
 </html>
