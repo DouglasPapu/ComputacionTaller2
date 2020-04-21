@@ -10,7 +10,7 @@ import co.edu.icesi.fi.tics.tssc.model.TsscAdmin;
 import co.edu.icesi.fi.tics.tssc.services.AdminService;
 
 @SpringBootApplication
-public class TallerPruebasIntegracionApplication {
+public class TallerThymeleafApplication {
 
 	@Bean
 	public Java8TimeDialect java8TimeDialect() {
@@ -18,7 +18,7 @@ public class TallerPruebasIntegracionApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(TallerPruebasIntegracionApplication.class, args);
+		SpringApplication.run(TallerThymeleafApplication.class, args);
 	}
 
 	@Bean
